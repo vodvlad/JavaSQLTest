@@ -11,20 +11,19 @@ public class DatabaseHandler extends Configs{
         dbConnection = DriverManager.getConnection(connectionString, dbUser, dbPass);
         return dbConnection;
     }
-    public void signUpUser(String FirstName, String LastName, String Username, String password,
-                           String email, String PhoneNumber, String Gender){
+    public void signUpUser(User user){
         String insert = "INSERT INTO " + Const.USER_TABLE + "(" + Const.USER_FIRST_NAME + "," + Const.USER_LAST_NAME + "," + Const.USER_USERNAME + "," + Const.USER_PASSWORD + "," + Const.USER_EMAIL + "," + Const.USER_PHONE_NUMBER + "," + Const.USER_GENDER + ")" + "VALUES(?,?,?,?,?,?,?)";
 
 
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(insert);
-            prSt.setString(1, FirstName);
-            prSt.setString(2, LastName);
-            prSt.setString(3, Username);
-            prSt.setString(4, password);
-            prSt.setString(5, email);
-            prSt.setString(6, PhoneNumber);
-            prSt.setString(7, Gender);
+            prSt.setString(1, user.getFirstName());
+            prSt.setString(2, user.getLastName());
+            prSt.setString(3, user.getUsername());
+            prSt.setString(4, user.getPassword());
+            prSt.setString(5, user.getEmail());
+            prSt.setString(6, user.getPhone_number());
+            prSt.setString(7, user.getGender());
             prSt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

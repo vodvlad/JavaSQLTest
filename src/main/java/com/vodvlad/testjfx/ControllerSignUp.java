@@ -46,21 +46,35 @@ public class ControllerSignUp {
     @FXML
     private TextField SignUpUsername;
 
-    @FXML
-    void initialize(){
 
-
-    }
     public void handleBtn() throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
         Stage window = (Stage) SignUpBack.getScene().getWindow();
         window.setScene(new Scene(root,700,400));
     }
     public void handleBtn1() throws Exception{
-        DatabaseHandler dbHandler = new DatabaseHandler();
-        dbHandler.signUpUser(SignUpName.getText(), SignUpLastName.getText(), SignUpUsername.getText(), SignUpPassword.getText(),
-                SignUpEmail.getText(), SignUpPhoneNumber.getText(), "Male");
+        signUpNewUser();
 
+    }
+
+    private void signUpNewUser() {
+        DatabaseHandler dbHandler = new DatabaseHandler();
+        String firstname = SignUpName.getText();
+        String lastname = SignUpLastName.getText();
+        String username = SignUpUsername.getText();
+        String password = SignUpPassword.getText();
+        String email = SignUpEmail.getText();
+        String phonenumber = SignUpPhoneNumber.getText();
+        String gender = "";
+        if(SignUpGenderMale.isSelected()){
+            gender = "Male";
+        } else {
+            gender = "Female";
+        }
+
+        User user = new User(firstname, lastname, username, password, email, phonenumber, gender);
+
+        dbHandler.signUpUser(user);
     }
 }
 
