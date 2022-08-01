@@ -33,4 +33,23 @@ public class DatabaseHandler extends Configs{
 
 
     }
+
+    public ResultSet getUser(User user) {
+        ResultSet resSet = null;
+        String select = "SELECT * FROM " + Const.USER_TABLE + " WHERE " + Const.USER_USERNAME + "=? AND " + Const.USER_PASSWORD + "=?";
+        try {
+            PreparedStatement prSt = getDbConnection().prepareStatement(select);
+            prSt.setString(1, user.getUsername());
+            prSt.setString(2, user.getPassword());
+
+            resSet = prSt.executeQuery();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        return resSet;
+    }
+
 }
