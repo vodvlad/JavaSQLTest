@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -15,46 +18,62 @@
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="236.0" style="-fx-background-color: #5A2A9C;">
          <children>
-            <AnchorPane layoutX="31.0" layoutY="93.0" prefHeight="262.0" prefWidth="174.0" style="-fx-background-color: #562895;" />
              <Polygon fill="#dfd3eb" layoutX="41.0" layoutY="226.0" opacity="0.14" points="-2.3999862670898438, -133.20001220703125, 38.40003204345703, 159.60000610351562, 132.60000610351562, 42.800018310546875, 189.39999389648438, -33.19999694824219" stroke="TRANSPARENT" strokeType="INSIDE" />
             <Label layoutX="30.0" layoutY="21.0" prefHeight="48.0" prefWidth="174.0" style="-fx-text-fill: #feffff;" text="Microsoft" textFill="#edf0f6">
                <font>
                   <Font name="Segoe UI" size="41.0" />
                </font>
             </Label>
-            <AnchorPane layoutX="43.0" layoutY="104.0" prefHeight="244.0" prefWidth="150.0">
-               <children>
-                  <Button fx:id="loginSignUpButton" layoutX="21.0" layoutY="185.0" mnemonicParsing="false" onAction="#handleBtn" prefHeight="26.0" prefWidth="108.0" style="-fx-background-color: #C9AFE7;" text="Sing up" textAlignment="CENTER" textFill="#f8f9fc" />
-                  <Button fx:id="authSignInButton" layoutX="21.0" layoutY="149.0" mnemonicParsing="false" onAction="#handleBtn1" prefHeight="26.0" prefWidth="108.0" style="-fx-background-color: #C9AFE7;" text="Log in" textAlignment="CENTER" textFill="#f8f9fc" />
-                  <CheckBox layoutY="123.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="150.0" text="Remember me" textFill="#f8f9fc">
-                     <font>
-                        <Font name="Segoe UI" size="12.0" />
-                     </font>
-                  </CheckBox>
-                  <TextField fx:id="password_field" layoutY="84.0" promptText="Password" style="-fx-background-color: #EDF0F6;" />
-                  <Label layoutY="58.0" prefHeight="18.0" prefWidth="59.0" style="-fx-text-fill: #feffff;" text="Password" textFill="#edf0f6">
-                     <font>
-                        <Font name="Segoe UI" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label prefHeight="18.0" prefWidth="38.0" style="-fx-text-fill: #feffff;" text="Login" textFill="#edf0f6">
-                     <font>
-                        <Font name="Segoe UI" size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="login_field" layoutY="26.0" promptText="Login" style="-fx-background-color: #EDF0F6;" />
-                  <Text accessibleRole="BUTTON" fill="#f8f9fc" layoutX="18.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I forgot my password" wrappingWidth="114.13671112060547">
-                     <font>
-                        <Font name="Segoe UI" size="12.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
             <Text fx:id="error_log" fill="RED" layoutX="53.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="150.39999999999998">
                <font>
                   <Font name="Segoe UI" size="12.0" />
                </font>
             </Text>
+            <VBox layoutX="28.0" layoutY="93.0" prefHeight="274.0" prefWidth="174.0" spacing="10.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <Label prefHeight="18.0" prefWidth="38.0" style="-fx-text-fill: #feffff;" text="Login" textFill="#edf0f6">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="login_field" prefHeight="25.0" promptText="Login" style="-fx-background-color: #EDF0F6;" />
+                  <Label prefHeight="18.0" prefWidth="59.0" style="-fx-text-fill: #feffff;" text="Password" textFill="#edf0f6">
+                     <font>
+                        <Font name="Segoe UI" size="14.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="password_field" prefHeight="25.0" promptText="Password" style="-fx-background-color: #EDF0F6;" />
+                  <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="150.0" text="Remember me" textFill="#f8f9fc">
+                     <font>
+                        <Font name="Segoe UI" size="12.0" />
+                     </font>
+                  </CheckBox>
+                  <Button fx:id="authSignInButton" mnemonicParsing="false" onAction="#handleBtn1" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #C9AFE7;" text="Log in" textAlignment="CENTER" textFill="#f8f9fc">
+                     <VBox.margin>
+                        <Insets left="35.0" right="30.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="loginSignUpButton" mnemonicParsing="false" onAction="#handleBtn" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #C9AFE7;" text="Sing up" textAlignment="CENTER" textFill="#f8f9fc">
+                     <VBox.margin>
+                        <Insets left="35.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Text accessibleRole="BUTTON" fill="#f8f9fc" strokeType="OUTSIDE" strokeWidth="0.0" text="I forgot my password" wrappingWidth="114.13671112060547">
+                     <font>
+                        <Font name="Segoe UI" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
          </children>
       </AnchorPane>
       <ImageView fitHeight="375.0" fitWidth="534.0" layoutX="194.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
